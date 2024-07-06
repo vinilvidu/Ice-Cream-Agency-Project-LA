@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="90a74131-bbda-4752-ba62-7279d2361b2a" name="Changes" comment="crud">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/LauncherWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/BOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/SuperBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/CreditBillBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/CustomerBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/DailyTransactionBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/EmployeeBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/ExpensesBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/PlaseDailyLoadingBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/PurchaseOrderBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/RouteBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/SalaryBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/StockBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/VanBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/CreditBillBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/CustomerBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/DailyTransactionBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/EmployeeBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/ExpensesBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/PlaseDailyLoadingBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/PurchaseOrderBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/RouteBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/SalaryBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/StockBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/VanBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/CreditBillFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/CustomerFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DailyLoadingFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DailyTransactionFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DashBoardFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/EmployeeFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/ExpensesFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/LoginFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/OrdersFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/SalaryFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/SalesReportFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/StockFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/CrudDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/DAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/SQLUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/SuperDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/CreditBillDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/DailyLoadingDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/DailyLoadingDetailDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/DailyTransactionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/EmployeeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/ExpensesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/OrderDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/OrderDetailDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/RouteDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/SalaryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/StockDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/VanDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/CreditBillDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/CustomerDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/DailyLoadingDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/DailyLoadingDetailDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/DailyTransactionDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/EmployeeDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/ExpensesDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/OrderDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/OrderDetailDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/RouteDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/SalaryDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/StockDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/VanDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/db/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/CreditBillDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/CustomerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/DailyLoadingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/DailyLoadingDetailDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/DailyTransactionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/EmployeeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/ExpensesDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/OrderDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/OrderDetailDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/PlaceLoadingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/PlaceOrderDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/RouteDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/SalaryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/StockDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dto/VanDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/CreditBill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/DailyLoading.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/DailyLoadingDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/DailyTransaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/Expenses.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/OrderDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/Route.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/Salary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/Stock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/entity/Van.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/CreditBillDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/CustomerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/DailyLoadingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/DailyLoadingDetailDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/DailyTransactionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/EmployeeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/ExpensesDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/OrderDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/OrderDetailDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/RouteDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/SalaryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/StockDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/model/VanDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/CreditBillTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/CustomerTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/DailyLoadingDetailTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/DailyLoadingTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/DailyTransactionTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/EmployeeTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/ExpensesTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/OrderDetailTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/OrderTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/RouteTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/SalaryTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/view/tdm/StockTM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/10886.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/9307421 bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/9307421.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/9307751.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Black___Blue_Minimalist_Modern_Initial_Font_Logo__1_-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Ice-Cream-Shop-Design-Ideas-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Monochrome_Modern_Technology_Black_Logo__1_-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1714011622220.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1714547699293.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1714841098373.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1714841391752.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1714841677816.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1714848354499.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1714848411724.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1715357313271.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1715395972073.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/Remove-bg.ai_1715397231995.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/clip-man-with-clipboard-receiving-delivery.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-add-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-back-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-bill-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-clear-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-customer-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-dashboard-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-delete-30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-employee-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-employee-16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-exit-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-expenses-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-loading-truck-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-login-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-near-me-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-order-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-print-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-register-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-report-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-salary-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-save-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-stock-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-transaction-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-truck-ramp-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-update-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-user-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/icons8-van-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/kote001_kotmale_logo_new-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assersts.icons/urban-204.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/credit_bill.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/daily_loading.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/daily_transaction.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/sales_report.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/stock_form.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2iM6CXupYVi86cd7T6WchrASGW5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="lk.ijse.agencyla.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\AgencyProject\src\main\resources\assersts.icons" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90a74131-bbda-4752-ba62-7279d2361b2a" name="Changes" comment="" />
+      <created>1719287974071</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719287974071</updated>
+      <workItem from="1719287975160" duration="5423000" />
+      <workItem from="1719311484485" duration="764000" />
+      <workItem from="1719312369007" duration="1820000" />
+      <workItem from="1719370246088" duration="1602000" />
+      <workItem from="1719378853453" duration="3875000" />
+      <workItem from="1719397883034" duration="9607000" />
+      <workItem from="1719452868910" duration="3304000" />
+      <workItem from="1719541113234" duration="3972000" />
+      <workItem from="1719560289646" duration="7821000" />
+      <workItem from="1719581979283" duration="2573000" />
+      <workItem from="1719623774137" duration="3523000" />
+      <workItem from="1719634477319" duration="3209000" />
+      <workItem from="1719838077820" duration="3968000" />
+      <workItem from="1719911315489" duration="43780000" />
+      <workItem from="1720075957612" duration="735000" />
+      <workItem from="1720083325605" duration="3335000" />
+      <workItem from="1720150458940" duration="869000" />
+      <workItem from="1720151439385" duration="1061000" />
+      <workItem from="1720155866773" duration="37000" />
+      <workItem from="1720165953681" duration="10881000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="crud" />
+  </component>
+</project>
