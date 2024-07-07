@@ -67,4 +67,9 @@ public class CreditBillBOImpl implements CreditBillBO {
     public boolean deleteCreditBill(String billId) throws SQLException, ClassNotFoundException {
         return creditBillDAO.delete(billId);
     }
+
+    @Override
+    public double getCreditAmount() throws SQLException, ClassNotFoundException {
+        return creditBillDAO.amount();
+    }
 }

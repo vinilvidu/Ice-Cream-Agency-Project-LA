@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.agencyla.controller.util.Validate;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -33,20 +34,45 @@ public class LoginFormController {
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
 
+        boolean isValidate = validatelogin();
             String userName = txtUserName.getText();
             String Password = txtPassword.getText();
 
-            try {
-                checkCredential(userName, Password);
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, "OOPS! something went wrong").show();
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
+            if (isValidate) {
+                try {
+                    checkCredential(userName, Password);
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR, "OOPS! something went wrong").show();
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
-
     }
 
+    private boolean validatelogin() {
+        int num=0;
+        String userName = txtUserName.getText();
+        boolean isUNValidate= Pattern.matches("[A-z]{3,}",userName);
+        if (!isUNValidate){
+            num=1;
+            Validate.vibrateTextField(txtUserName);
+        }
 
+        String Password=txtPassword.getText();
+        boolean isPWValidate= Pattern.matches("[A-z 0-9]{3,}",Password);
+        if (!isPWValidate){
+            num=1;
+            Validate.vibrateTextField(txtPassword);
+        }
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
+    }
 
     private void checkCredential(String userName, String Password) throws SQLException, IOException, ClassNotFoundException {
         String sql = "SELECT userName, Password FROM admin WHERE userName = ?";

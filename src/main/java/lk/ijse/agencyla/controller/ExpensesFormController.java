@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.agencyla.bo.BOFactory;
 import lk.ijse.agencyla.bo.custom.CustomerBO;
 import lk.ijse.agencyla.bo.custom.ExpensesBO;
+import lk.ijse.agencyla.controller.util.Validate;
 import lk.ijse.agencyla.dto.CustomerDTO;
 import lk.ijse.agencyla.dto.ExpensesDTO;
 import lk.ijse.agencyla.dto.StockDTO;
@@ -18,6 +19,7 @@ import lk.ijse.agencyla.view.tdm.ExpensesTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class ExpensesFormController {
 
@@ -122,24 +124,69 @@ public class ExpensesFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String code = txtCode.getText();
-        String vanId = cmbVanId.getValue();
-        double amount = Double.parseDouble(txtAmount.getText());
-        String description = txtDescription.getText();
-        String date = txtDate.getText();
+        boolean isValidate = validateExpenses();
 
-        ExpensesDTO dto = new ExpensesDTO(code, vanId, amount, description, date);
+        if (isValidate) {
+            String code = txtCode.getText();
+            String vanId = cmbVanId.getValue();
+            double amount = Double.parseDouble(txtAmount.getText());
+            String description = txtDescription.getText();
+            String date = txtDate.getText();
 
-        try {
-            boolean isSaved = expensesBO.saveExpenses(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "expenses saved!").show();
-                initialize();
+            ExpensesDTO dto = new ExpensesDTO(code, vanId, amount, description, date);
+
+            try {
+                boolean isSaved = expensesBO.saveExpenses(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "expenses saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean validateExpenses() {
+        int num=0;
+        String code = txtCode.getText();
+        boolean isCodeValidate= Pattern.matches("(EX)[0-9]{3,7}",code);
+        if (!isCodeValidate){
+            num=1;
+            Validate.vibrateTextField(txtCode);
+        }
+
+        String amount=txtAmount.getText();
+        boolean isAmountValidate= Pattern.matches("[0-9 .]{3,}",amount);
+        if (!isAmountValidate){
+            num=1;
+            Validate.vibrateTextField(txtAmount);
+        }
+
+        String description=txtDescription.getText();
+        boolean isDescriptonValidate= Pattern.matches("[A-z]{3,}",description);
+        if (!isDescriptonValidate){
+            num=1;
+            Validate.vibrateTextField(txtDescription);
+        }
+
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10}",date);
+        if (!isDateValidate){
+            num=1;
+            Validate.vibrateTextField(txtDate);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
         }
     }
 

@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.agencyla.bo.BOFactory;
 import lk.ijse.agencyla.bo.custom.StockBO;
+import lk.ijse.agencyla.controller.util.Validate;
 import lk.ijse.agencyla.dto.StockDTO;
 import lk.ijse.agencyla.entity.Stock;
 import lk.ijse.agencyla.view.tdm.StockTM;
@@ -17,6 +18,7 @@ import lk.ijse.agencyla.view.tdm.StockTM;
 import java.sql.SQLException;
 import java.text.CollationElementIterator;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class StockFormController {
 
@@ -143,23 +145,69 @@ public class StockFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String item_code=txtId.getText();
-        String name=txtName.getText();
-        Double unit_price= Double.valueOf(txtUnitPrice.getText());
-        Integer qty= Integer.valueOf(txtQty.getText());
+        boolean isValidate = validateStock();
 
-        StockDTO dto = new StockDTO(item_code, name, unit_price, qty);
+        if (isValidate) {
+            String item_code = txtId.getText();
+            String name = txtName.getText();
+            Double unit_price = Double.valueOf(txtUnitPrice.getText());
+            Integer qty = Integer.valueOf(txtQty.getText());
 
-        try {
-            boolean isSaved = stockBO.saveStock(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "stock saved!").show();
-                initialize();
+            StockDTO dto = new StockDTO(item_code, name, unit_price, qty);
+
+            try {
+                boolean isSaved = stockBO.saveStock(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "stock saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean validateStock() {
+
+        int num=0;
+        String code = txtId.getText();
+        boolean isCodeValidate= Pattern.matches("(it0)[0-9]{3,7}",code);
+        if (!isCodeValidate){
+            num=1;
+            Validate.vibrateTextField(txtId);
+        }
+
+        String name=txtName.getText();
+        boolean isNameValidate= Pattern.matches("[A-z 0-9]{3,}",name);
+        if (!isNameValidate){
+            num=1;
+            Validate.vibrateTextField(txtName);
+        }
+
+        String uPrice=txtUnitPrice.getText();
+        boolean isPriceValidate= Pattern.matches("[0-9 .]{2,}",uPrice);
+        if (!isPriceValidate){
+            num=1;
+            Validate.vibrateTextField(txtUnitPrice);
+        }
+
+        String qty=txtQty.getText();
+        boolean isQtyValidate= Pattern.matches("[0-9 ]{1,}",qty);
+        if (!isQtyValidate){
+            num=1;
+            Validate.vibrateTextField(txtQty);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
         }
     }
 

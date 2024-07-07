@@ -56,4 +56,14 @@ public class CreditBillDAOImpl implements CreditBillDAO {
     }
 
 
+    @Override
+    public double amount() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet=SQLUtil.execute("SELECT SUM(amount) AS credit_amount FROM credit_bill");
+
+        double creditAmount = 0.00;
+        if(resultSet.next()) {
+            creditAmount =  resultSet.getDouble("credit_amount");
+        }
+        return creditAmount;
+    }
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.agencyla.bo.BOFactory;
 import lk.ijse.agencyla.bo.custom.EmployeeBO;
 import lk.ijse.agencyla.bo.custom.StockBO;
+import lk.ijse.agencyla.controller.util.Validate;
 import lk.ijse.agencyla.dto.*;
 import lk.ijse.agencyla.entity.Employee;
 import lk.ijse.agencyla.entity.Expenses;
@@ -15,6 +16,7 @@ import lk.ijse.agencyla.view.tdm.StockTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class EmployeeFormController {
 
@@ -122,25 +124,77 @@ public class EmployeeFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String id = txtId.getText();
-        String name = txtName.getText();
-        String nic = txtNIC.getText();
-        String address = txtAddress.getText();
-        int contact = Integer.parseInt(txtContact.getText());
-        String vanId = cmbVanId.getValue();
+        boolean isValidate = validateEmployee();
 
-        EmployeeDTO dto = new EmployeeDTO(id, name, nic, address, contact, vanId);
+        if (isValidate) {
+            String id = txtId.getText();
+            String name = txtName.getText();
+            String nic = txtNIC.getText();
+            String address = txtAddress.getText();
+            int contact = Integer.parseInt(txtContact.getText());
+            String vanId = cmbVanId.getValue();
 
-        try {
-            boolean isSaved = employeeBO.saveEmployee(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "employee saved!").show();
-                initialize();
+            EmployeeDTO dto = new EmployeeDTO(id, name, nic, address, contact, vanId);
+
+            try {
+                boolean isSaved = employeeBO.saveEmployee(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "employee saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean validateEmployee() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIDValidate= Pattern.matches("(EX)[0-9]{3,7}",id);
+        if (!isIDValidate){
+            num=1;
+            Validate.vibrateTextField(txtId);
+        }
+
+        String name=txtName.getText();
+        boolean isNameValidate= Pattern.matches("[A-z]{3,}",name);
+        if (!isNameValidate){
+            num=1;
+            Validate.vibrateTextField(txtName);
+        }
+
+        String NIC=txtNIC.getText();
+        boolean isNICValidate= Pattern.matches("[0-9 v]{12}",NIC);
+        if (!isNICValidate){
+            num=1;
+            Validate.vibrateTextField(txtNIC);
+        }
+
+
+        String address=txtAddress.getText();
+        boolean isAddressValidate= Pattern.matches("[A-z]{3,}",address);
+        if (!isAddressValidate){
+            num=1;
+            Validate.vibrateTextField(txtAddress);
+        }
+
+        String contact=txtContact.getText();
+        boolean isContactValidate= Pattern.matches("[0-9]{10}",contact);
+        if (!isContactValidate){
+            num=1;
+            Validate.vibrateTextField(txtContact);
+        }
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
         }
     }
 

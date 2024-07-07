@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.agencyla.bo.BOFactory;
 import lk.ijse.agencyla.bo.custom.DailyTransactionBO;
 import lk.ijse.agencyla.bo.custom.ExpensesBO;
+import lk.ijse.agencyla.controller.util.Validate;
 import lk.ijse.agencyla.dto.DailyTransactionDTO;
 import lk.ijse.agencyla.dto.ExpensesDTO;
 import lk.ijse.agencyla.dto.StockDTO;
@@ -18,6 +19,7 @@ import lk.ijse.agencyla.view.tdm.ExpensesTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class DailyTransactionFormController {
 
@@ -110,26 +112,65 @@ public class DailyTransactionFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String billId = txtId.getText();
-        double amount = Double.parseDouble(txtAmount.getText());
-        String date = txtDate.getText();
-        String vanId = cmbVanId.getValue();
+        boolean isValidate = validateTransaction();
+
+        if (isValidate) {
+            String billId = txtId.getText();
+            double amount = Double.parseDouble(txtAmount.getText());
+            String date = txtDate.getText();
+            String vanId = cmbVanId.getValue();
 
 
-        DailyTransactionDTO dto = new DailyTransactionDTO(billId, amount, date, vanId);
+            DailyTransactionDTO dto = new DailyTransactionDTO(billId, amount, date, vanId);
 
-        try {
-            boolean isSaved = dailyTransactionBO.saveDailyTransaction(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "transaction saved!").show();
-                //initialize();
+            try {
+                boolean isSaved = dailyTransactionBO.saveDailyTransaction(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "transaction saved!").show();
+                    //initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
         }
     }
+
+    private boolean validateTransaction() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIdValidate= Pattern.matches("(B0)[0-9]{3,7}",id);
+        if (!isIdValidate){
+            num=1;
+            Validate.vibrateTextField(txtId);
+        }
+
+        String amount=txtAmount.getText();
+        boolean isAmountValidate= Pattern.matches("[0-9 .]{3,}",amount);
+        if (!isAmountValidate){
+            num=1;
+            Validate.vibrateTextField(txtAmount);
+        }
+
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10,12}",date);
+        if (!isDateValidate){
+            num=1;
+            Validate.vibrateTextField(txtDate);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
+    }
+
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {

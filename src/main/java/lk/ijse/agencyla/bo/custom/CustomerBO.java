@@ -26,4 +26,6 @@ public interface CustomerBO extends SuperBO {
     ArrayList<RouteDTO> getAllRouteID()throws SQLException, ClassNotFoundException;
 
     Customer searchById(String id)throws SQLException, ClassNotFoundException;
+
+    int getCustomerCount()throws SQLException, ClassNotFoundException;
 }

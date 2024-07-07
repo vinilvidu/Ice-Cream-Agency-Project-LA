@@ -21,7 +21,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.agencyla.bo.BOFactory;
+import lk.ijse.agencyla.bo.custom.CreditBillBO;
 import lk.ijse.agencyla.bo.custom.CustomerBO;
+import lk.ijse.agencyla.bo.custom.EmployeeBO;
 import lk.ijse.agencyla.bo.custom.RouteBO;
 import lk.ijse.agencyla.dao.custom.impl.RouteDAOImpl;
 import lk.ijse.agencyla.db.DBConnection;
@@ -96,6 +98,9 @@ public class DashBoardFormController {
     }
 
     RouteBO routeBO  = (RouteBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROUTE);
+    CustomerBO customerBO  = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CUSTOMER);
+    EmployeeBO employeeBO  = (EmployeeBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EMPLOYEE);
+    CreditBillBO creditBillBO  = (CreditBillBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CREDIT_BILL);
 
     private void setCustomerCount(int customerCount) {
         lblCusCount.setText(String.valueOf(customerCount));
@@ -109,90 +114,47 @@ public class DashBoardFormController {
         lblAmount.setText(String.valueOf(creditAmount));
     }
 
-    private int getCustomerCount() throws SQLException, ClassNotFoundException {
-        String sql = "SELECT COUNT(*) AS customer_count FROM customer";
-
-        Connection connection = DBConnection.getDbConnection().getConnection();
-        PreparedStatement pstm = connection.prepareStatement(sql);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        int customerCount = 0;
-        if(resultSet.next()) {
-            customerCount = resultSet.getInt("customer_count");
-        }
-        return customerCount;
-    }
-    private List<Route> routeList = new ArrayList<>();
-
-    private int getEmployeeCount() throws SQLException, ClassNotFoundException {
-        String sql = "SELECT COUNT(*) AS Employee_count FROM employee";
-
-        Connection connection = DBConnection.getDbConnection().getConnection();
-        PreparedStatement pstm = connection.prepareStatement(sql);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        int employeeCount = 0;
-        if(resultSet.next()) {
-            employeeCount = resultSet.getInt("employee_count");
-        }
-        return employeeCount;
-    }
-
-    private double getCreditAmount() throws SQLException, ClassNotFoundException {
-        String sql = "SELECT SUM(amount) AS credit_amount FROM credit_bill";
-
-
-        Connection connection = DBConnection.getDbConnection().getConnection();
-        PreparedStatement pstm = connection.prepareStatement(sql);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        double creditAmount = 0.00;
-        if(resultSet.next()) {
-            creditAmount =  resultSet.getDouble("credit_amount");
-        }
-        return creditAmount;
-    }
-
-
     public void initialize() throws SQLException {
-        //this.routeList = getAllRoutes();
+
         setCellValueFactory();
         loadAllRoute();
         initClock();
 
-        /*try {
-            customerCount = getCustomerCount();
+        //get customer count
+        try {
+            customerCount = customerBO.getCustomerCount();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         setCustomerCount(customerCount);
 
+        //get employee count
         try {
-            employeeCount = getEmployeeCount();
+            employeeCount = employeeBO.getEmployeeCount();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         setEmployeeCount(employeeCount);
 
+        //get credit bill ammount
         try {
-            creditAmount = getCreditAmount();
+            creditAmount = creditBillBO.getCreditAmount();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         setCreditAmount(creditAmount);
-
-
-*/
 
     }
 
     private void loadAllRoute() {
         tblVan.getItems().clear();
         try {
-            //*Get all customers*//*
             ArrayList<RouteDTO> allRoutes = routeBO.getAllRoutes();
 
             for (RouteDTO r : allRoutes) {
@@ -226,9 +188,6 @@ public class DashBoardFormController {
     }
 
 
-
-
-
     public void btnCustomerOnAction(ActionEvent actionEvent) throws IOException {
         URL resource = getClass().getResource("/view/customer_form.fxml");
         assert resource != null;
@@ -255,18 +214,6 @@ public class DashBoardFormController {
 
     public void btnEmployeeOnAction(ActionEvent actionEvent) throws IOException {
         URL resource = getClass().getResource("/view/employee_form.fxml");
-        assert resource != null;
-        Parent load = FXMLLoader.load(resource);
-        Load.getChildren().clear();
-        Load.getChildren().add(load);
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), Load);
-        transition.setFromX(load.getScene().getWidth());
-        transition.setToX(0);
-        transition.play();
-    }
-
-    public void btnSalesReportOnAction(ActionEvent actionEvent) throws IOException {
-        URL resource = getClass().getResource("/view/sales_report.fxml");
         assert resource != null;
         Parent load = FXMLLoader.load(resource);
         Load.getChildren().clear();
@@ -361,23 +308,7 @@ public class DashBoardFormController {
         transition.play();
     }
 
-    public void btnVanOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/van_form.fxml"));
 
-        Stage stage = (Stage) rootNode.getScene().getWindow();
-        stage.setScene(new Scene(anchorPane));
-        stage.centerOnScreen();
-        stage.setTitle("Van Form");
-    }
-
-    public void btnRouteOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/route_form.fxml"));
-
-        Stage stage = (Stage) rootNode.getScene().getWindow();
-        stage.setScene(new Scene(anchorPane));
-        stage.centerOnScreen();
-        stage.setTitle("Route Form");
-    }
 
     public void btnDashboardOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));

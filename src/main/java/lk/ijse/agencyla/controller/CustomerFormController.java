@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.agencyla.bo.BOFactory;
 import lk.ijse.agencyla.bo.custom.CustomerBO;
 import lk.ijse.agencyla.bo.custom.RouteBO;
+import lk.ijse.agencyla.controller.util.Validate;
 import lk.ijse.agencyla.dao.DAOFactory;
 import lk.ijse.agencyla.dao.custom.RouteDAO;
 import lk.ijse.agencyla.dto.CustomerDTO;
@@ -21,6 +22,7 @@ import lk.ijse.agencyla.view.tdm.CustomerTM;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class CustomerFormController {
 
@@ -165,27 +167,77 @@ public class CustomerFormController {
 
     @FXML
     void btnSaveOnAction() throws SQLException, ClassNotFoundException {
-        String id = txtId.getText();
-        String name = txtName.getText();
-        String shopName = txtShopName.getText();
-        String contact = txtContact.getText();
-        String address = txtAddress.getText();
-        String routeId = cmbRouteId.getValue();
+        boolean isValidate = validateCustomer();
 
-        CustomerDTO dto = new CustomerDTO(id, name, shopName, contact,address,routeId);
+        if (isValidate) {
+            String id = txtId.getText();
+            String name = txtName.getText();
+            String shopName = txtShopName.getText();
+            String contact = txtContact.getText();
+            String address = txtAddress.getText();
+            String routeId = cmbRouteId.getValue();
 
-        try {
-            boolean isSaved = customerBO.saveCustomer(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
-                initialize();
+            CustomerDTO dto = new CustomerDTO(id, name, shopName, contact, address, routeId);
+
+            try {
+                boolean isSaved = customerBO.saveCustomer(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean validateCustomer() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIDValidate= Pattern.matches("(C)[0-9]{3,7}",id);
+        if (!isIDValidate){
+            num=1;
+            Validate.vibrateTextField(txtId);
         }
 
+        String name=txtName.getText();
+        boolean isNameValidate= Pattern.matches("[A-z]{3,}",name);
+        if (!isNameValidate){
+            num=1;
+            Validate.vibrateTextField(txtName);
+        }
+
+        String shopName=txtShopName.getText();
+        boolean isShopNameValidate= Pattern.matches("[A-z ]{3,}",shopName);
+        if (!isShopNameValidate){
+            num=1;
+            Validate.vibrateTextField(txtShopName);
+        }
+
+        String contact=txtContact.getText();
+        boolean isContactValidate= Pattern.matches("[0-9]{10}",contact);
+        if (!isContactValidate){
+            num=1;
+            Validate.vibrateTextField(txtContact);
+        }
+
+        String address=txtAddress.getText();
+        boolean isAddressValidate= Pattern.matches("[A-z]{3,}",address);
+        if (!isAddressValidate){
+            num=1;
+            Validate.vibrateTextField(txtAddress);
+        }
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
     }
 
     @FXML

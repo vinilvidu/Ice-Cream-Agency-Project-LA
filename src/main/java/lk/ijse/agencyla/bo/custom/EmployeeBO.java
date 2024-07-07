@@ -24,4 +24,6 @@ public interface EmployeeBO extends SuperBO {
     Employee searchById(String id)throws SQLException, ClassNotFoundException;
 
     boolean deleteEmployee(String id)throws SQLException, ClassNotFoundException;
+
+    int getEmployeeCount()throws SQLException, ClassNotFoundException;
 }

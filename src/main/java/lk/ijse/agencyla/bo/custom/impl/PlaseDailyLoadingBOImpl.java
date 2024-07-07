@@ -8,6 +8,7 @@ import lk.ijse.agencyla.dto.PlaceLoadingDTO;
 import lk.ijse.agencyla.dto.StockDTO;
 import lk.ijse.agencyla.dto.VanDTO;
 import lk.ijse.agencyla.entity.DailyLoading;
+import lk.ijse.agencyla.entity.DailyLoadingDetail;
 import lk.ijse.agencyla.entity.Stock;
 import lk.ijse.agencyla.entity.Van;
 
@@ -57,7 +58,7 @@ public class PlaseDailyLoadingBOImpl implements PlaseDailyLoadingBO {
             if (isLoadSaved) {
                 System.out.println(isLoadSaved);
                 System.out.println("methnt awa");
-                boolean isLoadingDetailSaved = dailyLoadingDetailDAO.save((DailyLoading) pl.getLdList());
+                boolean isLoadingDetailSaved = dailyLoadingDetailDAO.save((DailyLoadingDetail) pl.getLdList());
                 System.out.println(isLoadingDetailSaved);
                 if (isLoadingDetailSaved) {
                     boolean isStockQtyUpdate = stockDAO.updateLoadingQty(pl.getLdList());

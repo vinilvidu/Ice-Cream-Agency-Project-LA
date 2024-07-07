@@ -2,10 +2,12 @@ package lk.ijse.agencyla.dao.custom.impl;
 
 import lk.ijse.agencyla.dao.SQLUtil;
 import lk.ijse.agencyla.dao.custom.OrderDetailDAO;
+import lk.ijse.agencyla.dto.OrderDetailDTO;
 import lk.ijse.agencyla.entity.OrderDetail;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class OrderDetailDAOImpl implements OrderDetailDAO {
     @Override
@@ -14,7 +16,17 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
     }
 
     @Override
-    public boolean save(OrderDetail entity) throws SQLException, ClassNotFoundException {
+    public boolean save(List<OrderDetailDTO> odList) {
+        for (OrderDetailDTO od : odList) {
+            if(!save((List<OrderDetailDTO>) od))  {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public  boolean save(OrderDetail entity) throws SQLException, ClassNotFoundException {
         System.out.println("order detail ekata awada");
         return SQLUtil.execute("INSERT INTO order_details(order_id,item_code,qty) VALUES(?,?,?)",entity.getOrderId(),entity.getItemCode(),entity.getQty());
     }
@@ -43,4 +55,6 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
     public boolean getId(String id) throws SQLException, ClassNotFoundException {
         return false;
     }
+
+
 }

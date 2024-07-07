@@ -8,16 +8,19 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.agencyla.bo.BOFactory;
 import lk.ijse.agencyla.bo.custom.PurchaseOrderBO;
+import lk.ijse.agencyla.controller.util.Validate;
 import lk.ijse.agencyla.dto.*;
 import lk.ijse.agencyla.entity.Employee;
 import lk.ijse.agencyla.entity.Order;
 import lk.ijse.agencyla.entity.OrderDetail;
 import lk.ijse.agencyla.entity.Stock;
+import lk.ijse.agencyla.view.tdm.CartTM;
 import lk.ijse.agencyla.view.tdm.OrderTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class OrdersFormController {
 
@@ -75,29 +78,69 @@ public class OrdersFormController {
 
     @FXML
     void btnAddItemOnAction(ActionEvent event) {
-        String orderId = txtId.getId();
-        String itemCode = cmbItemCode.getValue();
-        String name = lblName.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        String date = txtDate.getText();
+        boolean isValidate = validateOrders();
 
-        for (int i = 0; i < tblOrders.getItems().size(); i++) {
-            if (itemCode.equals(colItemCode.getCellData(i))) {
-                qty += cartList.get(i).getQty();
+        if (isValidate) {
+            String orderId = txtId.getId();
+            String itemCode = cmbItemCode.getValue();
+            String name = lblName.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            String date = txtDate.getText();
 
-                cartList.get(i).setQty(qty);
+            for (int i = 0; i < tblOrders.getItems().size(); i++) {
+                if (itemCode.equals(colItemCode.getCellData(i))) {
+                    qty += cartList.get(i).getQty();
 
-                tblOrders.refresh();
+                    cartList.get(i).setQty(qty);
 
-                return;
+                    tblOrders.refresh();
+
+                    return;
+                }
             }
+
+            CartTM cartTM = new CartTM(orderId, itemCode, name, qty, date);
+
+            cartList.add(cartTM);
+
+            tblOrders.setItems(cartList);
+        }
+    }
+
+    private boolean validateOrders() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIdValidate= Pattern.matches("(O0)[0-9]{3,7}",id);
+        if (!isIdValidate){
+            num=1;
+            Validate.vibrateTextField(txtId);
         }
 
-        OrderTM orderTM = new OrderTM(orderId,itemCode, name, qty,  date);
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10}",date);
+        if (!isDateValidate){
+            num=1;
+            Validate.vibrateTextField(txtDate);
+        }
 
-        cartList.add(orderTM);
+        String qty=txtQty.getText();
+        boolean isQtyValidate= Pattern.matches("[0-9]{1,}",qty);
+        if (!isQtyValidate){
+            num=1;
+            Validate.vibrateTextField(txtQty);
+        }
 
-        tblOrders.setItems(cartList);
+
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
     }
 
     @FXML
@@ -111,9 +154,9 @@ public class OrdersFormController {
         var order = new Order(orderId, itemCode, itemName,qty,date);
 
         List<OrderDetailDTO> odList = new ArrayList<>();
-        List<OrderDetail> stlist = new ArrayList<>();
+        List<OrderDetail>   stlist = new ArrayList<>();
         for (int i = 0; i < tblOrders.getItems().size(); i++) {
-            OrderTM tm = (OrderTM) cartList.get(i);
+            CartTM tm = (CartTM) cartList.get(i);
 
             OrderDetailDTO od = new OrderDetailDTO(
                     orderId,
@@ -125,7 +168,7 @@ public class OrdersFormController {
         }
 
         PlaceOrderDTO po = new PlaceOrderDTO(order, odList,stlist);
-        System.out.println(order.toString());
+        //System.out.println(order.toString());
         try {
             boolean isPlaced = purchaseOrderBO.placeOrder(po);
             System.out.println(po.toString());

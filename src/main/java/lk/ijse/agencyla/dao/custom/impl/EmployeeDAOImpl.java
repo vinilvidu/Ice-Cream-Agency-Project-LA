@@ -52,4 +52,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public boolean getId(String employee_id) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT employee_id FROM employee", employee_id);
     }
+
+    @Override
+    public int count() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet=SQLUtil.execute("SELECT COUNT(*) AS Employee_count FROM employee");
+
+        int employeeCount = 0;
+        if(resultSet.next()) {
+            employeeCount = resultSet.getInt("employee_count");
+        }
+        return employeeCount;
+    }
 }

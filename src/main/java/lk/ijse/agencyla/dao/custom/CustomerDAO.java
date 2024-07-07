@@ -7,4 +7,5 @@ import java.sql.SQLException;
 
 public interface CustomerDAO extends CrudDAO<Customer> {
 
+    int count() throws SQLException, ClassNotFoundException;
 }

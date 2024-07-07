@@ -24,4 +24,6 @@ public interface CreditBillBO extends SuperBO {
     boolean updateCreditBill(CreditBillDTO dto)throws SQLException, ClassNotFoundException;
 
     boolean deleteCreditBill(String billId)throws SQLException, ClassNotFoundException;
+
+    double getCreditAmount()throws SQLException, ClassNotFoundException;
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.agencyla.bo.BOFactory;
 import lk.ijse.agencyla.bo.custom.CreditBillBO;
 import lk.ijse.agencyla.bo.custom.ExpensesBO;
+import lk.ijse.agencyla.controller.util.Validate;
 import lk.ijse.agencyla.dto.CreditBillDTO;
 import lk.ijse.agencyla.dto.CustomerDTO;
 import lk.ijse.agencyla.dto.ExpensesDTO;
@@ -19,6 +20,7 @@ import lk.ijse.agencyla.view.tdm.ExpensesTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class CreditBillFormController {
 
@@ -120,24 +122,64 @@ public class CreditBillFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String billId = txtId.getText();
-        String cusId = cmbCusId.getValue();
-        String routeId = txtId11.getText();
-        double amount = Double.valueOf(txtId1.getText());
-        String date = txtId21.getText();
+        boolean isValidate = validateCreditBill();
 
-        CreditBillDTO dto = new CreditBillDTO(billId, cusId, routeId, amount, date);
+        if (isValidate) {
+            String billId = txtId.getText();
+            String cusId = cmbCusId.getValue();
+            String routeId = txtId11.getText();
+            double amount = Double.valueOf(txtId1.getText());
+            String date = txtId21.getText();
 
-        try {
-            boolean isSaved = creditBillBO.saveCreditBill(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "credit bill saved!").show();
-                initialize();
+            CreditBillDTO dto = new CreditBillDTO(billId, cusId, routeId, amount, date);
+
+            try {
+                boolean isSaved = creditBillBO.saveCreditBill(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "credit bill saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        }
+    }
+
+
+    private boolean validateCreditBill() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIdValidate= Pattern.matches("(CB)[0-9]{3,7}",id);
+        if (!isIdValidate){
+            num=1;
+            Validate.vibrateTextField(txtId);
+        }
+
+
+        String amount=txtId1.getText();
+        boolean isAmountValidate= Pattern.matches("[0-9 .]{3,}",amount);
+        if (!isAmountValidate){
+            num=1;
+            Validate.vibrateTextField(txtId1);
+        }
+
+        String date=txtId21.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10}",date);
+        if (!isDateValidate){
+            num=1;
+            Validate.vibrateTextField(txtId21);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
         }
     }
 

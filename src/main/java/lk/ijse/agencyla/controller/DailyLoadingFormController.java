@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.agencyla.bo.BOFactory;
 import lk.ijse.agencyla.bo.custom.CustomerBO;
 import lk.ijse.agencyla.bo.custom.PlaseDailyLoadingBO;
+import lk.ijse.agencyla.controller.util.Validate;
 import lk.ijse.agencyla.dto.*;
 import lk.ijse.agencyla.entity.DailyLoading;
 import lk.ijse.agencyla.entity.DailyLoadingDetail;
@@ -18,6 +19,7 @@ import lk.ijse.agencyla.view.tdm.DailyLoadingTM;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class DailyLoadingFormController {
 
@@ -96,29 +98,69 @@ public class DailyLoadingFormController {
 
     @FXML
     void btnAddItemOnAction(ActionEvent event) {
-        String repoId = txtId.getId();
-        String itemCode = cmbItemCode.getValue();
-        String itemName = lblName.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        String vanId = cmbVanId.getValue();
-        String date = txtDate.getId();
+        boolean isValidate = validateLoading();
 
-        for (int i = 0; i < tblLoadingReport.getItems().size(); i++) {
-            if (itemCode.equals(colItemCode.getCellData(i))) {
+        if (isValidate) {
+            String repoId = txtId.getId();
+            String itemCode = cmbItemCode.getValue();
+            String itemName = lblName.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            String vanId = cmbVanId.getValue();
+            String date = txtDate.getId();
 
-                qty = loadList.get(i).getQty();
-                loadList.get(i).setQty(qty);
+            for (int i = 0; i < tblLoadingReport.getItems().size(); i++) {
+                if (itemCode.equals(colItemCode.getCellData(i))) {
 
-                tblLoadingReport.refresh();
+                    qty = loadList.get(i).getQty();
+                    loadList.get(i).setQty(qty);
 
+                    tblLoadingReport.refresh();
+
+                }
             }
+
+            DailyLoadingTM dailyLoadingTM = new DailyLoadingTM(repoId, itemCode, itemName, qty, vanId, date);
+
+            loadList.add(dailyLoadingTM);
+
+            tblLoadingReport.setItems(loadList);
+        }
+    }
+
+    private boolean validateLoading() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIdValidate= Pattern.matches("(R0)[0-9]{3,7}",id);
+        if (!isIdValidate){
+            num=1;
+            Validate.vibrateTextField(txtId);
         }
 
-        DailyLoadingTM dailyLoadingTM = new DailyLoadingTM(repoId,itemCode, itemName, qty, vanId,  date);
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10}",date);
+        if (!isDateValidate){
+            num=1;
+            Validate.vibrateTextField(txtDate);
+        }
 
-        loadList.add(dailyLoadingTM);
+        String qty=txtQty.getText();
+        boolean isQtyValidate= Pattern.matches("[0-9]{1,}",qty);
+        if (!isQtyValidate){
+            num=1;
+            Validate.vibrateTextField(txtQty);
+        }
 
-        tblLoadingReport.setItems(loadList);
+
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
     }
 
     @FXML
