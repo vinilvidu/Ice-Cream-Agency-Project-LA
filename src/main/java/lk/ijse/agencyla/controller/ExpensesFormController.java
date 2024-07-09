@@ -85,7 +85,6 @@ public class ExpensesFormController {
     private void loadAllExpenses() {
         tblExpences.getItems().clear();
         try {
-            //*Get all customers*//*
             ArrayList<ExpensesDTO> allExpenses = expensesBO.getAllExpenses();
 
             for (ExpensesDTO ex : allExpenses) {

@@ -89,7 +89,6 @@ public class EmployeeFormController {
     private void loadAllEmployee() {
         tblEmployee.getItems().clear();
         try {
-            //*Get all items*//
             ArrayList<EmployeeDTO> allEmployees = employeeBO.getAllEmployee();
             for (EmployeeDTO e : allEmployees) {
                 tblEmployee.getItems().add(new EmployeeTM(e.getId(), e.getName(), e.getNic(), e.getAddress(), e.getContact(), e.getVanId()));

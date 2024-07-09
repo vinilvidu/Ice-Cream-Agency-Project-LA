@@ -150,9 +150,6 @@ public class DailyLoadingFormController {
             Validate.vibrateTextField(txtQty);
         }
 
-
-
-
         if(num==1){
             num=0;
             return false;
@@ -176,7 +173,6 @@ public class DailyLoadingFormController {
         System.out.println(dailyLoading);
 
         List<DailyLoadingDetailDTO> ldList = new ArrayList<>();
-        //List<Loading> itList = new ArrayList<>();
 
         for (int i = 0; i < tblLoadingReport.getItems().size(); i++) {
             DailyLoadingTM tm = (DailyLoadingTM) loadList.get(i);

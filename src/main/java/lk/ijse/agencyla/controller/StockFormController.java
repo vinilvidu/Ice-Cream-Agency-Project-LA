@@ -50,8 +50,7 @@ public class StockFormController {
     private TextField txtUnitPrice;
 
     StockBO stockBO = (StockBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STOCK);
-    private MenuItemBase btnDeleteOnAction;
-    private CollationElementIterator btnSaveOnAction;
+
 
     public void initialize(){
         tblStock.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("itemCode"));
@@ -59,28 +58,6 @@ public class StockFormController {
         tblStock.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         tblStock.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("qty"));
 
-
-        //initUI();
-
-        /*tblStock.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            btnDeleteOnAction.setDisable(newValue == null);
-            btnSaveOnAction.setText(newValue != null ? "Update" : "Save");
-            btnSaveOnAction.equals(newValue == null);
-
-            if (newValue != null) {
-                txtId.setText(String.valueOf(newValue.getClass()));
-                txtName.setText(String.valueOf(newValue.getClass()));
-                txtUnitPrice.setText(String.valueOf(newValue.toString().equals(2)));
-                txtQty.setText(newValue.getClass() + "");
-
-                txtId.equals(false);
-                txtName.equals(false);
-                txtUnitPrice.setDisable(false);
-                txtQty.equals(false);
-            }
-        });
-
-        txtQty.setOnAction(event -> btnSaveOnAction.reset());*/
         loadAllStock();
 
     }
@@ -88,7 +65,6 @@ public class StockFormController {
     private void loadAllStock() {
         tblStock.getItems().clear();
         try {
-            //*Get all items*//
             ArrayList<StockDTO> allStocks = stockBO.getAllStocks();
             for (StockDTO s : allStocks) {
                 tblStock.getItems().add(new StockTM (s.getItemCode(), s.getName(), s.getUnitPrice(), s.getQty()));
@@ -100,19 +76,7 @@ public class StockFormController {
         }
     }
 
-    private void initUI() {
-        txtId.clear();
-        txtName.clear();
-        txtUnitPrice.clear();
-        txtQty.clear();
-        txtId.setDisable(true);
-        txtName.setDisable(true);
-        txtUnitPrice.setDisable(true);
-        txtQty.setDisable(true);
-        txtId.setEditable(false);
 
-
-    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {

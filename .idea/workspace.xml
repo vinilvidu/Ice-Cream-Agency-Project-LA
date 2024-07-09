@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90a74131-bbda-4752-ba62-7279d2361b2a" name="Changes" comment="crud">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/RegistrationFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/util/Validate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/registration_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/CreditBillBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/CreditBillBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/CustomerBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/CustomerBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/EmployeeBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/EmployeeBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/CreditBillBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/CreditBillBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/CustomerBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/CustomerBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/EmployeeBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/bo/custom/impl/EmployeeBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/CreditBillFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/CreditBillFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/CustomerFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DailyLoadingFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DailyLoadingFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DailyTransactionFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DailyTransactionFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DashBoardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/DashBoardFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/EmployeeFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/ExpensesFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/ExpensesFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/OrdersFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/OrdersFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/SalaryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/SalaryFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/SalesReportFormController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/StockFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/controller/StockFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/CreditBillDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/CreditBillDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/CustomerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/CreditBillDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/CreditBillDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/CustomerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/CustomerDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/EmployeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agencyla/dao/custom/impl/EmployeeDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/sales_report.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="90a74131-bbda-4752-ba62-7279d2361b2a" name="Changes" comment="crud" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

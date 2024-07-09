@@ -76,26 +76,6 @@ public class CustomerFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colRouteID.setCellValueFactory(new PropertyValueFactory<>("routeId"));
 
-
-        /*initUI();
-
-        tblCustomer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-
-            if (newValue != null) {
-                txtId.setText(String.valueOf(newValue.getClass()));
-                txtName.setText(String.valueOf(newValue.getClass()));
-                txtShopName.setText(String.valueOf(newValue.getClass()));
-                txtContact.setText(String.valueOf(newValue.getClass()));
-                txtAddress.setText(String.valueOf(newValue.getClass()));
-                cmbRouteId.setValue(newValue.getClass());
-
-                txtCustomerId.setDisable(false);
-                txtCustomerName.setDisable(false);
-                txtCustomerAddress.setDisable(false);
-            }
-        });
-
-        txtCustomerAddress.setOnAction(event -> btnSave.fire());*/
         loadAllCustomers();
         loadAllRouteID();
 
@@ -120,7 +100,7 @@ public class CustomerFormController {
     private void loadAllCustomers() {
         tblCustomer.getItems().clear();
         try {
-            //*Get all customers*//*
+
             ArrayList<CustomerDTO> allCustomers = customerBO.getAllCustomers();
 
             for (CustomerDTO c : allCustomers) {
@@ -133,17 +113,7 @@ public class CustomerFormController {
         }
     }
 
-    /*private void initUI() {
-        txtCustomerId.clear();
-        txtCustomerName.clear();
-        txtCustomerAddress.clear();
-        txtCustomerId.setDisable(true);
-        txtCustomerName.setDisable(true);
-        txtCustomerAddress.setDisable(true);
-        txtCustomerId.setEditable(false);
-        btnSave.setDisable(true);
-        btnDelete.setDisable(true);
-    }*/
+
     @FXML
     void btnClearOnAction(ActionEvent event) {
         txtId.setText("");

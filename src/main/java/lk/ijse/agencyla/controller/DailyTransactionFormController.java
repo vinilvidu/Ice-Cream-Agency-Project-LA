@@ -77,7 +77,6 @@ public class DailyTransactionFormController {
 
     private void loadAllTransactions() {
         try {
-            //*Get all customers*//*
             ArrayList<DailyTransactionDTO> allTransactions = dailyTransactionBO.getAllTransactions();
 
             for (DailyTransactionDTO dt : allTransactions) {
@@ -106,7 +105,7 @@ public class DailyTransactionFormController {
         boolean isDeleted = dailyTransactionBO.deleteDailyTransaction(billId);
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "transaction deleted!").show();
-            //initialize();
+            initialize();
         }
     }
 
@@ -127,7 +126,7 @@ public class DailyTransactionFormController {
                 boolean isSaved = dailyTransactionBO.saveDailyTransaction(dto);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "transaction saved!").show();
-                    //initialize();
+                    initialize();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

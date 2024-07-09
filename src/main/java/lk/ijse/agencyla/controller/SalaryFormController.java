@@ -95,7 +95,6 @@ public class SalaryFormController {
     private void loadAllSalary() {
         tblSalary.getItems().clear();
         try {
-            //*Get all customers*//*
             ArrayList<SalaryDTO> allSalary = salaryBO.getAllSalary();
 
             for (SalaryDTO  s : allSalary) {
