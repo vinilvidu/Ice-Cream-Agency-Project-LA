@@ -92,9 +92,7 @@ public class OrdersFormController {
                     qty += cartList.get(i).getQty();
 
                     cartList.get(i).setQty(qty);
-
                     tblOrders.refresh();
-
                     return;
                 }
             }
@@ -129,9 +127,6 @@ public class OrdersFormController {
             num=1;
             Validate.vibrateTextField(txtQty);
         }
-
-
-
 
         if(num==1){
             num=0;
